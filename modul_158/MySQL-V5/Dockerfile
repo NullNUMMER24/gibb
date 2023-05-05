@@ -4,5 +4,6 @@ ENV MYSQL_DATABASE=sourcedb
 ENV MYSQL_USER=dbadmin
 ENV MYSQL_PASSWORD=sml12345
 COPY my.cnf /etc/mysql/my.cnf
+COPY init.sql /docker-entrypoint-initdb.d/
 EXPOSE 3306
 CMD ["mysqld"]
