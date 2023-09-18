@@ -1,0 +1,20 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+Vagrant.configure("2") do |config|
+
+  config.vm.provider "virtualbox" do |rs|
+    rs.memory = 2048
+    rs.cpus = 2
+  end
+
+  # Will not check for box updates during every startup.
+  config.vm.box_check_update = false
+
+  config.vm.define "vmLS1" do |vmLS1|
+    vmLS1.vm.box = "ubuntu/jammy64"
+    vmLS1.vm.hostname = "vmLS1.sam159.iet-gibb.ch"
+    vmLS1.vm.network "private_network", ip: "192.168.56.5"
+    vmLS1.vm.provision "shell", path: "scripts/configureVmLS1.sh"
+    vmLS1.vm.provision "shell", path: "scripts/lam.sh"
+  end
+end

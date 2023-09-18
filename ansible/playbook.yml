@@ -1,0 +1,31 @@
+---
+- name: Install KDC on vmls1
+  hosts: vmls1  # Replace with the appropriate hostname or group
+  become: yes   # Run tasks with sudo privileges
+
+  tasks:
+    - name: Update package cache
+      apt:
+        update_cache: yes
+      when: ansible_os_family == 'Debian'  # Adjust for your OS family
+
+    - name: Install Kerberos packages
+      apt:
+        name:
+          - krb5-kdc
+          - krb5-admin-server
+      when: ansible_os_family == 'Debian'  # Adjust for your OS family
+
+    # You may need to adjust package names and package manager for other Linux distributions.
+
+    - name: Configure KDC
+      template:
+        src: krb5.conf.j2  # Create a Jinja2 template for krb5.conf
+        dest: /etc/krb5.conf
+      notify: Restart KDC
+
+  handlers:
+    - name: Restart KDC
+      service:
+        name: krb5-kdc
+        state: restarted
