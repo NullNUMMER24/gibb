@@ -18,3 +18,10 @@ Um de Filestash i Explorer i z binge, brucht me d Adrässe vom GIBB Filestash. M
 > ```
 >ssh-keygen -R sftp.iet-gibb.ch
 > ```
+# Smartlearn Probleme
+## Warning; Remote Host Identificatin has changed
+De Lehrer wo d VM ersteut het, het scho mau ssh uf die VM gmacht u när wahrschinlech öpis i de Netzwärchsettings devo gändered. De Command um de Server us de **Known Hosts** z lösche isch dä:
+```
+ssh-keygen -f "/home/vmadmin/.ssh/known_hosts" -R "192.168.110.61"
+```
+
