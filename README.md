@@ -1,4 +1,6 @@
 # GIBB Aleitige
+>[!IMPORTANT]
+>Eventuell isch einiges scho widr verautet
 ## WMWare recivercer installiere
 1. VMWare reciver vom GIBB Filestash abe lade: https://filestash.gibb.ch/files/IET-Share/sh-smartlearn/4_software/ 
 2. Mit `sudo su -` usfüehre, da es süsch ni geit
