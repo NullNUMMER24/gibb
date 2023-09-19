@@ -14,7 +14,8 @@ Vagrant.configure("2") do |config|
     vmLS1.vm.box = "ubuntu/jammy64"
     vmLS1.vm.hostname = "vmLS1.sam159.iet-gibb.ch"
     vmLS1.vm.network "private_network", ip: "192.168.56.5"
-    vmLS1.vm.provision "shell", path: "scripts/configureVmLS1.sh"
-    vmLS1.vm.provision "shell", path: "scripts/lam.sh"
+    vmLS1.vm.provision "shell", path: "scripts/user.sh"
+#    vmLS1.vm.provision "shell", path: "scripts/configureVmLS1.sh"
+#    vmLS1.vm.provision "shell", path: "scripts/lam.sh"
   end
 end
